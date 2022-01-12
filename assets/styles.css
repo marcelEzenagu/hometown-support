@@ -1,0 +1,45 @@
+
+ table {
+          width: 100%;
+        }
+        tr {
+          text-align: left;
+          border: 1px solid black;
+          
+        }
+        #table-row {
+          border-bottom: 1px solid black;
+
+        }
+        th, td {
+          padding: 5px;
+          width:60;
+        }
+        #headerLeft {
+          width:40%
+        }
+        #headerRight {
+          width:40%;
+          margin-left:40px
+        }
+        header{
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+        }
+        img{width:25%}
+        #user{
+          font-size:18;
+        }
+        #statement{
+          border-bottom: 1px solid black;
+          font-size:20px;
+          text-align:center;
+          margin:20px 0px
+        }
+        .credit{
+          background-color:"green"
+        }
+        .debit{
+          background-color:"red"
+        }
