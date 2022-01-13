@@ -20,7 +20,8 @@ const printPdf = async () => {
 			right: '20px',
 			bottom: '20px',
 			left: '20px'
-		}
+		},
+		printBackground:true
 	});
 	/* 4- Cleanup: close browser. */
 	await browser.close();

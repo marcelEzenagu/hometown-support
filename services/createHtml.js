@@ -62,14 +62,10 @@ const createHtml = (items, img, user,totalCredit,totalDebit,) =>
   <html>
     <head>
       <style>
-      html {
-        -webkit-print-color-adjust: exact;
-        }
         table {
           width: 100%;
           border-collapse: collapse;
           
-           background-image: url("${img}");
          }
         tr {
           text-align: left;
@@ -86,7 +82,7 @@ const createHtml = (items, img, user,totalCredit,totalDebit,) =>
           border: 0.3px solid black;
         }
         #headerLeft {
-          width:40%
+          width:40%;
         }
         #headerRight {
           width:40%;
@@ -102,19 +98,11 @@ const createHtml = (items, img, user,totalCredit,totalDebit,) =>
         #user{
           font-size:18;
         }
-        #table-div{
-           background-image: url("${img}");
-           background-size:auto; 
-           background-repeat:no-repeat;
-        }
         #statement{
           border-bottom: 1px solid #804b34!important;
           font-size:20px;
           text-align:center;
           margin:20px 0px
-        }
-        .data-elements:nth-child(even){
-          background-color:#c2c1c0;
         }
         .credit{
           color:green;
@@ -131,7 +119,7 @@ const createHtml = (items, img, user,totalCredit,totalDebit,) =>
         }
       </style>
     </head>
-    <body>
+    <body style="background-origin: content-box; background:url(${"../assets/op-home.png"}) space center,300px 600px !important;" >
       <header>
         <div id="headerLeft">
           <p  >
@@ -202,15 +190,14 @@ const createHtml = (items, img, user,totalCredit,totalDebit,) =>
         
         </div>
       </div>
-        <div style="display:flex; flex-direction:column;justify-content:center">
-          <div>
-                
+        <div style="display:flex; min-height:100vh; flex-direction:column;justify-content:center;">
+          
             <div  style="display:flex; justify-content:space-between;padding:5px;margin-bottom:5px;" class="data-elements" >
               <div style="display:flex;justify-content:flex-start;align-items:center;width:50%;">
-                <h5 style="width:20%;" >Date</h5>
-                <h5 style="width:55%;"  >Description</h5>
+                <h5 style="width:25%;" >Date</h5>
+                <h5 style="width:75%;"  >Description</h5>
               </div>
-              <div style="display:flex; justify-content:space-around; align-items:flex-end; width:50%">
+              <div style="display:flex; justify-content:space-evenly; align-items:flex-end; width:50%">
                 <h5  >Debit</h5>
                 <h5 >Credit</h5>
                 <h5>Type</h5>
@@ -219,12 +206,13 @@ const createHtml = (items, img, user,totalCredit,totalDebit,) =>
             </div>
             ${items.map( i => 
           `
-           <div style="display:flex;justify-content:space-between; align-items:flex-start" >
-              <div style="display:flex;" >
-                <span style="width:20%;" >${i?.date}</span>
-                <span  style="width:60%; ">${i?.remark}</span>
+           <div style="display:flex;justify-content:space-evenly;  align-items:center; margin-bottom:12px" >
+              
+              <div style="display:flex;justify-content:flex-start;width:50%;" >
+                <span style="width:25%;" >${i?.date}</span>
+                <span  style="width:75%;" >${i?.remark}</span>
               </div>
-              <div style="display:flex; width:40%;">
+              <div style="display:flex; justify-content:space-evenly;align-items:center; width:50%">
                 <span class="debit">${(i?.type === "Debit") ? i?.debit : "-"}</span>
                 <span class="credit">${(i?.type === "Credit") ? i?.credit: "-"}</span>
                 <span >${i?.type}</span>
@@ -233,7 +221,7 @@ const createHtml = (items, img, user,totalCredit,totalDebit,) =>
             </div>
           `
             ).join("")}
-     
+        </div>
     </body>
   </html>
 `
