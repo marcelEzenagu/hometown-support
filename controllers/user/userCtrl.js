@@ -6,11 +6,10 @@ const getUserByEmail = async(email) => {
         .where("email", email)
         .select("lname", "fname")
         // .first()
-        .then((user) => {
-            // const data = {
-            //     name: `${user.lname}" "`
-            // }
-            // return user
+        .then(user => {
+            const userData = `${user[0].lname} ${user[0].fname}`
+            console.log("user is:", userData)
+            return userData
         })
     }
 

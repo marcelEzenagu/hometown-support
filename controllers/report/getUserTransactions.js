@@ -2,8 +2,6 @@ const knex = require("../../db")
 const moment = require('moment')
 const getUserBalance = require("./getUserBalance")
 const numberFormat = require('../../services/numberFormat')
-const groupItemsByData = require("../../services/dateGrouping")
-const dataGrouping = require("../../services/dataGrouping")
 
 const getUserTransactions = async({start_date, end_date, userEmail}) => {
     //  get transacions relative to start and end date
@@ -60,11 +58,6 @@ const getUserTransactions = async({start_date, end_date, userEmail}) => {
                     debits.push(Number(trans.amount))
                 }
             })
-
-            // let datedList =  groupItemsByData(transactions)
-            // statement.items = dataGrouping(transactions)
-            
-             
          }
       credits.length >= 1 ?  statement.totalCredit = numberFormat(credits?.reduce((a,b) => (a+b))) : 0;
       debits.length >= 1 ?  statement.totalDebit = numberFormat(debits?.reduce((a,b) => (a+b))) : 0;

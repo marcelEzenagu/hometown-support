@@ -1,11 +1,8 @@
 const express = require('express')
-const { getPdf, rangeTransaction } = require('../controllers/accountStatement')
+const { getPdf} = require('../controllers/accountStatement')
 
 const accountStatementRouter = express.Router()
 
-accountStatementRouter.post("/",
-                // rangeTransaction, 
-                getPdf 
-            )
+accountStatementRouter.post("/", getPdf)
 
 module.exports = accountStatementRouter

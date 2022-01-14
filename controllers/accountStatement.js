@@ -1,30 +1,22 @@
 const knex = require('../db')
-const getData = require('../services/createTable')
 const createPdf = require('../services/createPdf')
 const path = require('path')
 const moment = require('moment')
 const getPdfData = require('../services/createHtml')
+const getData = require('../services/createTable')
 const fs = require('fs')
 
 
 
 const getPdf = async(req, res) => {
-    console.log("request body:", req.body)
+    // console.log("request body:", req.body)0
      const { start_date, end_date, userEmail} = req.body
-
     await getPdfData({start_date, end_date, userEmail}).then(err => {
         if (!err){
             createPdf()
             .then((err) => {
                 if(!err){
-                    const pdf = path.resolve('./pdf/build.pdf')
-                    
-                    // fs.readFile(pdf, (err, data) => {
-
-                    //     // res.contentType("application/pdf")
-                    //     res.download(data)
-                    // })
-                    // res.sendFile(pdf)
+                    const pdf = path.resolve('./services/pdf/statement.pdf')
                     let file = fs.createReadStream(pdf)
                     file.pipe(res)
                 }   
@@ -32,15 +24,6 @@ const getPdf = async(req, res) => {
             })
         }
     })
-
-
-    
-   // res.render('../views/pages/report', { items:trans})    
-    // const docFile = await generatePdf(('../views/pages/report', { items:trans}))
-    // res.set("Content-Type", "application/pdf")
-
-    // res.send(docFile)
-
 }
 
 
