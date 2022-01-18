@@ -1,16 +1,17 @@
 const knex = require('../../db')
 
 
-const getUserByEmail = async(email) => {
-    knex("users")
-        .where("email", email)
-        .select("lname", "fname")
-        // .first()
-        .then(user => {
-            const userData = `${user[0].lname} ${user[0].fname}`
-            console.log("user is:", userData)
-            return userData
-        })
+const getUserByEmail = async(req, res,next) => {
+    const {email} = req.body
+  const user =  await knex("users")
+    .where("email", email)
+    .first()
+
+    if(!user) {
+        return res.status(404).send("User not found")
     }
+    req.user = user
+    next()
+}
 
     module.exports = getUserByEmail
