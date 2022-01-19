@@ -4,7 +4,6 @@ const getUserTransactions = require("../controllers/report/getUserTransactions")
 // Build paths
 const { buildPathHtml } = require('./buildPaths');
 const path = require('path');
-const getUserByEmail = require('../controllers/user/userCtrl');
 
 const img = path.resolve("./assets/hometown.jpg")
 

@@ -2,7 +2,7 @@
   "name": "hometown",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "support.js",
   "dependencies": {
     "ajv": "^6.12.6",
     "axios": "^0.20.0",
@@ -51,8 +51,8 @@
   },
   "scripts": {
     "test": "jest --watchAll",
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon support.js",
+    "start": "node support.js"
   },
   "author": "",
   "license": "ISC",

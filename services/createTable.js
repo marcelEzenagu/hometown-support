@@ -2,7 +2,6 @@ const fs = require('fs');
 // Build paths
 const { buildPathHtml } = require('./buildPaths');
 const path = require('path');
-const getUserByEmail = require('../controllers/user/userCtrl');
 const getUserTransactions = require('../controllers/report/getUserTransactions');
 
 const img = path.resolve("./assets/hometown.jpg")
